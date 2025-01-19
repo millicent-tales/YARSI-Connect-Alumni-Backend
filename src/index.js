@@ -83,18 +83,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: (origin, callback) => {
-      // You can modify this to allow specific origins in production
-      if (!origin || origin === 'null') {
-        callback(null, true); // Allow requests without origin (e.g., Postman)
+      const allowedOrigins = ['https://yarsi-connect-alumni-frontend.vercel.app'];
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
       } else {
-        callback(null, true); // Allow all origins for development
+        callback(new Error('Not allowed by CORS'));
       }
     },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,  // Allow credentials like cookies
+    credentials: true,
   })
 );
+
 
 app.use(cookieParser());
 
