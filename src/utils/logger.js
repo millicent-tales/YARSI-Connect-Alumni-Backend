@@ -1,36 +1,24 @@
 const winston = require("winston");
-require("winston-daily-rotate-file");
 
 const { createLogger, format, transports } = winston;
 
 const logger = createLogger({
   format: format.combine(
-    format.timestamp(), // Menambahkan timestamp
+    format.timestamp(), // Add timestamp
     format.printf(({ timestamp, level, message, ...meta }) => {
-      // Format log ke dalam bentuk JSON
+      // Format log as JSON
       return JSON.stringify({
         timestamp,
         level: level.toUpperCase(),
         message,
-        method: meta.method || "N/A", // Tambahkan method jika tersedia
-        url: meta.url || "N/A",       // Tambahkan url jika tersedia
+        method: meta.method || "N/A", // Add method if available
+        url: meta.url || "N/A",       // Add url if available
         ...meta,
       });
     })
   ),
   transports: [
-    new transports.DailyRotateFile({
-      filename: "src/logs/error/system_error_%DATE%.log",
-      datePattern: "YYYY-MM-DD",
-      level: "error",
-      maxSize: "5m",
-    }),
-    new transports.DailyRotateFile({
-      filename: "src/logs/info/system_info_%DATE%.log",
-      datePattern: "YYYY-MM-DD",
-      level: "info",
-      maxSize: "5m",
-    }),
+    new transports.Console(), // Log to console
   ],
 });
 
