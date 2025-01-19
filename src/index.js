@@ -75,15 +75,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (allowedOrigins.includes(origin) || !origin) { // Allow requests with no origin (e.g., from Postman)
+      if (allowedOrigins.includes(origin) || !origin) {
         callback(null, true);
       } else {
         callback(new Error('Not allowed by CORS'), false);
       }
     },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Ensure the methods are allowed
+    allowedHeaders: ['Content-Type', 'Authorization'], // Ensure the headers are allowed
     credentials: true,
   })
 );
+
 
 // Cookie parser middleware
 app.use(cookieParser());
