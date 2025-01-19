@@ -59,39 +59,16 @@ const PORT = process.env.PORT;
 // MIDDLEWARE SETUP
 // ===============================================
 
-// List of allowed origins
-const allowedOrigins = [
-  "*",
-  "https://yarsi-connect-alumni-backend.vercel.app",
-  "https://yarsi-connect-alumni-frontend.vercel.app",
-  "http://localhost:2000",
-  "http://localhost:3000"
-];
-
 // Basic middleware configuration
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// CORS middleware configuration with multiple origins
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (allowedOrigins.includes(origin) || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'), false);
-      }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Ensure the methods are allowed
-    allowedHeaders: ['Content-Type', 'Authorization'], // Ensure the headers are allowed
+    origin: "*",
     credentials: true,
   })
 );
-
-
-// Cookie parser middleware
 app.use(cookieParser());
-
 
 // ===============================================
 // STATIC FILE SERVING
