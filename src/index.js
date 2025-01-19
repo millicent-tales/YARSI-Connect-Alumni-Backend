@@ -61,7 +61,7 @@ const PORT = process.env.PORT;
 
 // List of allowed origins
 const allowedOrigins = [
-  "https://yarsi-connect-alumni-backend-96zhke53j-milicent-tales-projects.vercel.app",
+  "https://yarsi-connect-alumni-backend.vercel.app/",
   "http://localhost:2000",
   "http://localhost:3000"
 ];
