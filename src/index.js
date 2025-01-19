@@ -79,21 +79,20 @@ app.use(express.urlencoded({ extended: true }));
 //     credentials: true,    // Allow cookies and credentials
 //   })
 // );
+// CORS configuration
 app.use(
   cors({
     origin: (origin, callback) => {
-      // For local or no-origin requests (e.g., from Postman), allow them
+      // You can modify this to allow specific origins in production
       if (!origin || origin === 'null') {
-        callback(null, true);
-        return;
+        callback(null, true); // Allow requests without origin (e.g., Postman)
+      } else {
+        callback(null, true); // Allow all origins for development
       }
-
-      // Allow any origin (you can modify this logic to filter specific origins later)
-      callback(null, true);
     },
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'],    // Allowed headers
-    credentials: true,                                    // Allow cookies
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,  // Allow credentials like cookies
   })
 );
 
