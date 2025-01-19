@@ -59,12 +59,6 @@ const PORT = process.env.PORT;
 // MIDDLEWARE SETUP
 // ===============================================
 
-// List of allowed origins
-const allowedOrigins = [
-  "https://yarsi-connect-alumni-frontend.vercel.app",  // Your frontend origin
-  // Add other trusted origins if needed
-];
-
 // Basic middleware configuration
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -87,10 +81,19 @@ app.use(express.urlencoded({ extended: true }));
 // );
 app.use(
   cors({
-    origin: true, // Allow all origins temporarily
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
+    origin: (origin, callback) => {
+      // For local or no-origin requests (e.g., from Postman), allow them
+      if (!origin || origin === 'null') {
+        callback(null, true);
+        return;
+      }
+
+      // Allow any origin (you can modify this logic to filter specific origins later)
+      callback(null, true);
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'],    // Allowed headers
+    credentials: true,                                    // Allow cookies
   })
 );
 
