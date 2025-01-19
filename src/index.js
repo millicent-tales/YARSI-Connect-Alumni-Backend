@@ -69,22 +69,31 @@ const allowedOrigins = [
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // CORS middleware configuration to allow only specific origins with credentials
+// app.use(
+//   cors({
+//     origin: (origin, callback) => {
+//       console.log(`Incoming origin: ${origin}`); // Log the incoming origin
+
+//       if (allowedOrigins.includes(origin) || !origin) { // Allow if the origin is in the allowedOrigins array
+//         callback(null, true);
+//       } else {
+//         callback(new Error('Not allowed by CORS'), false);
+//       }
+//     },
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+//     allowedHeaders: ['Content-Type', 'Authorization'],   // Allowed headers
+//     credentials: true,    // Allow cookies and credentials
+//   })
+// );
 app.use(
   cors({
-    origin: (origin, callback) => {
-      console.log(`Incoming origin: ${origin}`); // Log the incoming origin
-
-      if (allowedOrigins.includes(origin) || !origin) { // Allow if the origin is in the allowedOrigins array
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'), false);
-      }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'],   // Allowed headers
-    credentials: true,    // Allow cookies and credentials
+    origin: true, // Allow all origins temporarily
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
   })
 );
+
 app.use(cookieParser());
 
 // ===============================================
