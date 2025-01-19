@@ -1,0 +1,88 @@
+{"timestamp":"2025-01-14T18:27:03.578Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-14T18:27:03.619Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T01:11:25.799Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T01:11:25.838Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T07:42:17.662Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"ae4b2b84-8fb8-4a7d-b94e-7465c682ad46"}
+{"timestamp":"2025-01-15T07:42:17.878Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"ae4b2b84-8fb8-4a7d-b94e-7465c682ad46"}
+{"timestamp":"2025-01-15T07:45:30.365Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"ae4b2b84-8fb8-4a7d-b94e-7465c682ad46"}
+{"timestamp":"2025-01-15T07:45:51.462Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T07:45:51.503Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T12:04:43.110Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T12:04:43.187Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T14:37:05.175Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"90fb0a5f-0179-453f-8cf9-76506b6732c8"}
+{"timestamp":"2025-01-15T14:37:05.205Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"90fb0a5f-0179-453f-8cf9-76506b6732c8"}
+{"timestamp":"2025-01-15T14:38:57.688Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"90fb0a5f-0179-453f-8cf9-76506b6732c8"}
+{"timestamp":"2025-01-15T14:38:57.699Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"90fb0a5f-0179-453f-8cf9-76506b6732c8"}
+{"timestamp":"2025-01-15T14:43:36.146Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"90fb0a5f-0179-453f-8cf9-76506b6732c8"}
+{"timestamp":"2025-01-15T14:43:56.652Z","level":"WARN","message":"Login failed, user not found","method":"POST","url":"/api/v1/auth/login","username":"admin-pus"}
+{"timestamp":"2025-01-15T14:44:01.985Z","level":"WARN","message":"Login failed, incorrect password","method":"POST","url":"/api/v1/auth/login","username":"admin-puskaka"}
+{"timestamp":"2025-01-15T14:44:08.357Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T14:44:08.418Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T14:49:51.464Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T14:50:15.892Z","level":"WARN","message":"Login failed, user not found","method":"POST","url":"/api/v1/auth/login","username":"admin-pus"}
+{"timestamp":"2025-01-15T14:50:21.056Z","level":"WARN","message":"Login failed, incorrect password","method":"POST","url":"/api/v1/auth/login","username":"admin-puskaka"}
+{"timestamp":"2025-01-15T14:50:26.266Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T14:50:26.297Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T15:40:18.211Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T15:40:37.143Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"3ef0d9b4-3799-428c-9cb8-7ca6bb09e0a3"}
+{"timestamp":"2025-01-15T15:40:37.159Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"3ef0d9b4-3799-428c-9cb8-7ca6bb09e0a3"}
+{"timestamp":"2025-01-15T15:41:50.608Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"3ef0d9b4-3799-428c-9cb8-7ca6bb09e0a3"}
+{"timestamp":"2025-01-15T15:42:32.761Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T15:42:32.767Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T15:44:59.104Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T15:44:59.118Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T15:59:37.499Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T15:59:51.398Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"90fb0a5f-0179-453f-8cf9-76506b6732c8"}
+{"timestamp":"2025-01-15T15:59:51.404Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"90fb0a5f-0179-453f-8cf9-76506b6732c8"}
+{"timestamp":"2025-01-15T16:09:09.936Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"90fb0a5f-0179-453f-8cf9-76506b6732c8"}
+{"timestamp":"2025-01-15T16:09:24.498Z","level":"WARN","message":"Login failed, incorrect password","method":"POST","url":"/api/v1/auth/login","username":"karina.defitrah"}
+{"timestamp":"2025-01-15T16:09:29.652Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"2e5d4a7c-abd7-4c45-bd07-be7f65605473"}
+{"timestamp":"2025-01-15T16:09:29.661Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"2e5d4a7c-abd7-4c45-bd07-be7f65605473"}
+{"timestamp":"2025-01-15T16:12:48.064Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"2e5d4a7c-abd7-4c45-bd07-be7f65605473"}
+{"timestamp":"2025-01-15T16:13:01.767Z","level":"WARN","message":"Login failed, incorrect password","method":"POST","url":"/api/v1/auth/login","username":"marsya.faradilah"}
+{"timestamp":"2025-01-15T16:14:53.715Z","level":"INFO","message":"Password changed successfully","method":"PATCH","url":"/api/v1/auth/changePassword","userId":"5035fe86-5a28-4a96-9cd0-589be21177bc"}
+{"timestamp":"2025-01-15T16:15:01.428Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"5035fe86-5a28-4a96-9cd0-589be21177bc"}
+{"timestamp":"2025-01-15T16:15:01.476Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"5035fe86-5a28-4a96-9cd0-589be21177bc"}
+{"timestamp":"2025-01-15T16:19:15.118Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"5035fe86-5a28-4a96-9cd0-589be21177bc"}
+{"timestamp":"2025-01-15T16:19:29.043Z","level":"WARN","message":"Login failed, incorrect password","method":"POST","url":"/api/v1/auth/login","username":"nauraniah.charisma"}
+{"timestamp":"2025-01-15T16:19:51.802Z","level":"INFO","message":"Password changed successfully","method":"PATCH","url":"/api/v1/auth/changePassword","userId":"5c1d3fa7-56fc-4b2a-a1d0-c5c296b0cad6"}
+{"timestamp":"2025-01-15T16:20:03.279Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"5c1d3fa7-56fc-4b2a-a1d0-c5c296b0cad6"}
+{"timestamp":"2025-01-15T16:20:03.298Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"5c1d3fa7-56fc-4b2a-a1d0-c5c296b0cad6"}
+{"timestamp":"2025-01-15T16:23:58.837Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"5c1d3fa7-56fc-4b2a-a1d0-c5c296b0cad6"}
+{"timestamp":"2025-01-15T16:24:52.443Z","level":"WARN","message":"Password change failed, incorrect old password","method":"PATCH","url":"/api/v1/auth/changePassword","username":"muthiah.kamilah"}
+{"timestamp":"2025-01-15T16:24:53.178Z","level":"WARN","message":"Password change failed, incorrect old password","method":"PATCH","url":"/api/v1/auth/changePassword","username":"muthiah.kamilah"}
+{"timestamp":"2025-01-15T16:24:57.005Z","level":"INFO","message":"Password changed successfully","method":"PATCH","url":"/api/v1/auth/changePassword","userId":"f02ef100-b0cc-4d5e-bcad-d17d702f1203"}
+{"timestamp":"2025-01-15T16:25:06.221Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"90fb0a5f-0179-453f-8cf9-76506b6732c8"}
+{"timestamp":"2025-01-15T16:25:06.266Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"90fb0a5f-0179-453f-8cf9-76506b6732c8"}
+{"timestamp":"2025-01-15T16:25:08.029Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"90fb0a5f-0179-453f-8cf9-76506b6732c8"}
+{"timestamp":"2025-01-15T16:25:20.043Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"f02ef100-b0cc-4d5e-bcad-d17d702f1203"}
+{"timestamp":"2025-01-15T16:25:20.047Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"f02ef100-b0cc-4d5e-bcad-d17d702f1203"}
+{"timestamp":"2025-01-15T16:28:12.123Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"f02ef100-b0cc-4d5e-bcad-d17d702f1203"}
+{"timestamp":"2025-01-15T16:28:43.188Z","level":"INFO","message":"Password changed successfully","method":"PATCH","url":"/api/v1/auth/changePassword","userId":"26cf6e83-13b9-40d3-ade3-6f46a48a1fa9"}
+{"timestamp":"2025-01-15T16:28:51.792Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"26cf6e83-13b9-40d3-ade3-6f46a48a1fa9"}
+{"timestamp":"2025-01-15T16:28:51.810Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"26cf6e83-13b9-40d3-ade3-6f46a48a1fa9"}
+{"timestamp":"2025-01-15T16:32:02.032Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"26cf6e83-13b9-40d3-ade3-6f46a48a1fa9"}
+{"timestamp":"2025-01-15T16:32:28.636Z","level":"INFO","message":"Password changed successfully","method":"PATCH","url":"/api/v1/auth/changePassword","userId":"a54348d2-f6ae-44eb-acdb-b0f06b491e8d"}
+{"timestamp":"2025-01-15T16:32:36.809Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"a54348d2-f6ae-44eb-acdb-b0f06b491e8d"}
+{"timestamp":"2025-01-15T16:32:36.823Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"a54348d2-f6ae-44eb-acdb-b0f06b491e8d"}
+{"timestamp":"2025-01-15T16:34:24.682Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"a54348d2-f6ae-44eb-acdb-b0f06b491e8d"}
+{"timestamp":"2025-01-15T16:35:11.037Z","level":"INFO","message":"Password changed successfully","method":"PATCH","url":"/api/v1/auth/changePassword","userId":"522c5609-2041-47cd-8714-26164cff21a0"}
+{"timestamp":"2025-01-15T16:35:28.157Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"522c5609-2041-47cd-8714-26164cff21a0"}
+{"timestamp":"2025-01-15T16:35:28.178Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"522c5609-2041-47cd-8714-26164cff21a0"}
+{"timestamp":"2025-01-15T16:37:39.993Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"522c5609-2041-47cd-8714-26164cff21a0"}
+{"timestamp":"2025-01-15T16:38:10.875Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"7d84fbdd-0096-4e0c-adff-43f4b0206467"}
+{"timestamp":"2025-01-15T16:38:10.899Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"7d84fbdd-0096-4e0c-adff-43f4b0206467"}
+{"timestamp":"2025-01-15T16:40:11.687Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"7d84fbdd-0096-4e0c-adff-43f4b0206467"}
+{"timestamp":"2025-01-15T16:40:39.885Z","level":"WARN","message":"Password change failed, incorrect old password","method":"PATCH","url":"/api/v1/auth/changePassword","username":"yahya.alghazali"}
+{"timestamp":"2025-01-15T16:40:44.613Z","level":"WARN","message":"Password change failed, incorrect old password","method":"PATCH","url":"/api/v1/auth/changePassword","username":"yahya.alghazali"}
+{"timestamp":"2025-01-15T16:40:45.640Z","level":"WARN","message":"Password change failed, incorrect old password","method":"PATCH","url":"/api/v1/auth/changePassword","username":"yahya.alghazali"}
+{"timestamp":"2025-01-15T16:40:53.766Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"d58b1cfa-976c-4e3c-a4a8-5f53785b02e3"}
+{"timestamp":"2025-01-15T16:40:53.795Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"d58b1cfa-976c-4e3c-a4a8-5f53785b02e3"}
+{"timestamp":"2025-01-15T16:42:46.575Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"d58b1cfa-976c-4e3c-a4a8-5f53785b02e3"}
+{"timestamp":"2025-01-15T16:42:59.322Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T16:42:59.330Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T16:52:26.817Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T16:53:58.812Z","level":"WARN","message":"Login failed, user not found","method":"POST","url":"/api/v1/auth/login","username":"admin-pus"}
+{"timestamp":"2025-01-15T16:54:02.939Z","level":"WARN","message":"Login failed, incorrect password","method":"POST","url":"/api/v1/auth/login","username":"admin-puskaka"}
+{"timestamp":"2025-01-15T16:54:08.721Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-15T16:54:08.764Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}

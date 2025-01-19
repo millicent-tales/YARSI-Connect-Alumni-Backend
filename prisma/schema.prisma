@@ -1,0 +1,344 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Enum untuk tipe kategori program alumni
+enum ProgramType {
+  Lowongan_Kerja
+  Reuni
+  Penggalangan_Dana
+  Sesi_Berbagi_Pengalaman
+}
+
+// Enum untuk tipe status alumni program
+enum AlumniProgramStatus {
+  Menunggu_Persetujuan
+  Diverifikasi_Oleh_Prodi
+  Diverifikasi_Oleh_Universitas
+  Ditolak
+}
+
+// Enum untuk tipe status news
+enum NewsStatus {
+  Menunggu_Persetujuan
+  Diverifikasi_Oleh_Universitas
+  Ditolak
+}
+
+// Enum untuk tipe status event
+enum EventStatus {
+  Menunggu_Persetujuan
+  Diverifikasi_Oleh_Universitas
+  Ditolak
+}
+
+model User {
+  id        String  @id @default(uuid())
+  username  String  @unique
+  password  String
+  roleId    String
+  profileId String? @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  role Role @relation(fields: [roleId], references: [id])
+
+  eventsAsUniversitas     Event[]         @relation("EventAdminUniversitas")
+  newsAsUniversitas       News[]          @relation("NewsAdminUniversitas")
+  authoredEvents          Event[]         @relation("EventAuthor")
+  authoredNews            News[]          @relation("NewsAuthor")
+  AlumniPrograms          AlumniProgram[] @relation("SubmissionAuthor")
+  prodiVerifications      AlumniProgram[] @relation("SubmissionProdiVerifier")
+  universityVerifications AlumniProgram[] @relation("SubmissionUniversityVerifier")
+  Profile                 Profile?
+
+  @@map("users")
+}
+
+model Role {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  users     User[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("roles")
+}
+
+model Profile {
+  id                                  String  @id @default(uuid()) // ID unik untuk profile
+  user_id                             String  @unique // Foreign key ke User
+  image                               String
+  full_name                           String // Nama lengkap alumni
+  student_identification_number       String // Nomor Induk Mahasiswa (NIM)
+  study_program_id                    String  // Foreign key ke Program
+  year_graduated                      DateTime? // Tahun kelulusan
+  work                                String? // Pekerjaan saat ini (opsional)
+  skills                              String? // Daftar keterampilan (array of strings)
+  entrepreneur                        String? // Status apakah alumni seorang pengusaha
+  competencies                        String? // Kompetensi spesifik (array of strings)
+  career                              String? // Jalur karir atau deskripsi karir (opsional)
+  company                             String?   // Field baru
+  linkedin                            String?   // Field baru
+  is_alumni_leader                    Boolean   @default(false)
+
+  createdAt DateTime @default(now()) // Tanggal dibuat
+  updatedAt DateTime @updatedAt // Tanggal diperbarui otomatis
+
+  // Relasi ke model User
+  user User @relation(fields: [user_id], references: [id])
+
+  // Relasi ke Program
+  studyProgram StudyProgram @relation(fields: [study_program_id ], references: [id])
+
+  // Relasi ke SensitiveStudentData
+  sensitive_student_data SensitiveStudentData?
+
+  tracer_study TracerStudy?
+
+  @@map("profiles") // Nama tabel di database
+}
+
+model StudyProgram {
+  id    String  @id @default(uuid()) // ID unik untuk program studi
+  name  String // Nama program studi
+  code  String  @unique // Kode unik untuk program studi
+  level String // Jenjang program studi
+
+  // Relasi dengan alumni melalui Profile
+  profiles Profile[] // Alumni yang terdaftar pada program studi ini
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("programs") // Nama tabel di database
+}
+
+model SensitiveStudentData {
+  id                        String   @id @default(uuid())
+  profile_id                String   @unique
+  pt_code                   String   @default("031026")
+  place_of_birth            String
+  date_of_birth             DateTime
+  national_identity_number  String
+  full_address              String
+  email                     String
+  phone_number              String
+  mobile_number             String
+  total_credits             Int
+  graduation_date           DateTime
+  yudisium_date             DateTime
+  gpa                       Float
+  gender                    String
+
+  // Tambahkan onDelete Cascade
+  profile Profile @relation(fields: [profile_id], references: [id], onDelete: Cascade)
+}
+
+model News {
+  id              String     @id @default(uuid())
+  title           String     @unique
+  content         String     @db.Text
+  image           String
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  NewsStatus      NewsStatus @default(Menunggu_Persetujuan)
+  rejectionReason String?    @db.Text
+
+  author             User    @relation("NewsAuthor", fields: [authorId], references: [id])
+  authorId           String
+  adminUniversitas   User?   @relation("NewsAdminUniversitas", fields: [adminUniversitasId], references: [id])
+  adminUniversitasId String? // ID dari admin universitas yang memverifikasi berita
+  isActive           Boolean @default(false) // Status on/off untuk tampil di beranda
+}
+
+model Event {
+  id              String      @id @default(uuid())
+  title           String      @unique
+  date            DateTime
+  description     String?     @db.Text
+  image           String
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  EventStatus     EventStatus @default(Menunggu_Persetujuan)
+  rejectionReason String?     @db.Text
+
+  author             User    @relation("EventAuthor", fields: [authorId], references: [id])
+  authorId           String
+  adminUniversitas   User?   @relation("EventAdminUniversitas", fields: [adminUniversitasId], references: [id])
+  adminUniversitasId String? // ID dari admin universitas yang memverifikasi event
+
+  isActive Boolean @default(false) // Status on/off untuk tampil di beranda
+}
+
+model AlumniProgram {
+  id                  String              @id @default(uuid())
+  title               String
+  description         String              @db.Text
+  image               String?
+  category            ProgramType // Langsung menggunakan enum
+  AlumniProgramStatus AlumniProgramStatus @default(Menunggu_Persetujuan)
+  rejectionReason     String?             @db.Text
+
+  // Relations
+  author   User   @relation("SubmissionAuthor", fields: [authorId], references: [id])
+  authorId String
+
+  adminProdi   User?   @relation("SubmissionProdiVerifier", fields: [adminProdiId], references: [id])
+  adminProdiId String?
+
+  adminUniversitas   User?   @relation("SubmissionUniversityVerifier", fields: [adminUniversitasId], references: [id])
+  adminUniversitasId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  isActive Boolean @default(false) // Status on/off untuk tampil di beranda
+
+  @@map("program_submissions")
+  
+}
+
+model TracerStudy {
+  id            String   @id @default(uuid())
+  profile_id    String   @unique
+  nimhsmsmh     String?
+  tahun_lulus   String?
+  nmmhsmsmh     String?
+  emailmsmh     String?
+  kdptimsmh     String?
+  kdpstmsmh     String?
+  telpomsmh     String?
+  nik           String?
+  npwp          String?
+  
+  f8     Int // Jelaskan status Anda saat ini? * INI BUAT STATISTIK
+  f502   Int? // Dalam berapa bulan Anda mendapatkan pekerjaan pertama ? * (2) (bekerja) (Wiraswasta) TANDAIN | INI BUAT STATISTIK
+  f505   Int? // Berapa rata-rata pendapatan Anda per bulan? (take home pay) (3) (bekerja)
+  f5a1   String?  @db.Text // Provinsi(4a) (bekerja)
+  f5a2   String?  @db.Text // Kota/Kabupaten (4b) (bekerja)
+  f1101  Int? // Apa jenis perusahaan/intansi/institusi tempat anda bekerja sekarang? (5) (bekerja)
+  f1102  String?  @db.Text // Apa jenis perusahaan/intansi/institusi tempat anda bekerja sekarang? lainnya (5b) (bekerja) INI BUAT STATISTIK
+  f5b    String?  @db.Text // Apa nama perusahaan/kantor tempat Anda bekerja? (6) (bekerja)
+  f5c    String?  @db.Text // Bila berwiraswasta, apa posisi/jabatan Anda saat ini? (Apabila 1 Menjawab [3] wiraswasta) (wiraswasta)
+  f5d    Int? // Apa tingkat tempat kerja Anda? (7) (bekerja) (wiraswasta) INI BUAT STATISTIK
+  f18a   String?  @db.Text // Sumber biaya (melanjutkan pendidikan)
+  f18b   String?  @db.Text // Perguruan Tinggi (melanjutkan pendidikan)
+  f18c   String?  @db.Text // Program Studi (melanjutkan pendidikan)
+  f18d   DateTime? // Tanggal Masuk (melanjutkan pendidikan)
+  f1201  Int // Sebutkan sumberdana dalam pembiayaan kuliah? * (bukan ketika Studi Lanjut) (10) (bekejra) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1202  String?  @db.Text // Sebutkan sumberdana dalam pembiayaan kuliah? * (bukan ketika Studi Lanjut) (lainnya) (10) (bekejra) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  
+  f14 Int? // Seberapa erat hubungan bidang studi dengan pekerjaan Anda? * (8) (bekerja) TANDAIN
+  f15 Int? // Tingkat pendidikan apa yang paling tepat/sesuai untuk pekerjaan anda saat ini? * (9) (bekerja) TANDAIN
+  
+  f1761 Int // Etika (11a) * (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1762 Int // Etika (11b) * (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1763 Int // Keahlian berdasarkan bidang ilmu (11c) * (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1764 Int // Keahlian berdasarkan bidang ilmu (11d) * (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1765 Int // Bahasa Inggri (11e) * (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1766 Int // Bahasa Inggri (11f) * (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1767 Int // Penggunaan Teknologi Informasi * (11g) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1768 Int // Penggunaan Teknologi Informasi * (11h) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1769 Int // Komunikasi (11i) (bekerja) * (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1770 Int // Komunikasi (11j) (bekerja) * (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1771 Int // Kerja sama tim (11k) * (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1772 Int // Kerja sama tim (11l) * (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1773 Int // Pengembangan (11m) * (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1774 Int // Pengembangan (11n) * (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+
+  f21 Int? // Perkuliahan (12a) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f22 Int? // Demonstrasi (12b) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f23 Int? // Partisipasi dalam proyek riset (12c) (bekerja) (Belum memungkinkan bekerja) (wiraswasta)(melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f24 Int? // Magang (12d) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f25 Int? // Praktikum (12e) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f26 Int? // Kerja Lapangan (12f) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f27 Int? // Diskusi (12g) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  
+  f301 Int? // Kapan anda mulai mencari pekerjaan? (13) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f302 Int? // Kapan anda mulai mencari pekerjaan? (13a) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f303 Int? //Kapan anda mulai mencari pekerjaan? (13b) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan)  (tidak kerja tetapi sedang mencari kerja)
+
+  f401 Int? // Melalui iklan di koran/majalah, brosur (14a) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)  
+  f402 Int? // Melamar ke perusahaan tanpa mengetahui lowongan yang ada (14b) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan)   (tidak kerja tetapi sedang mencari kerja)
+  f403 Int? // Pergikebursa/pamerankerja (14c) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f404 Int? // Mencarilewatinternet/iklanonline/milis (14d) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f405 Int? // Dihubungi oleh perusahaan (14e) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f406 Int? // Menghubungi Kemenakertrans (14f) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f407 Int? // Menghubungi agen tenaga kerja komersial/swasta (14g) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f408 Int? // Memeroleh informasi dari pusat/kantor pengembangan karir fakultas/universitas (14h) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f409 Int? // Menghubungikantorkemahasiswaan/hubunganalumni (14i) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f410 Int? // Membangunjejaring(network)sejakmasihkuliah (14j) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f411 Int? // Melalui relasi (misalnya dosen, orang tua, saudara, teman, dll.) (14k) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f412 Int? // Membangun bisnis sendiri (14l) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f413 Int? // Melalui penempatan kerja atau magang (14m) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f414 Int? // Bekerja di tempat yang sama dengan tempat kerja semasa kuliah (14n) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f415 Int? // Lainnya (14o) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f416 String?  @db.Text // Lainnya (textbox) (14p) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+   
+  f6 Int? // Berapa perusahaan/instansi/institusi yang sudah anda lamar (lewat surat atau e-mail) sebelum anda memeroleh pekerjaan pertama? (15) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f7 Int? // Berapa banyak perusahaan/instansi/institusi yang merespons lamaran anda? (16) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f7a Int? // Berapa banyak perusahaan/instansi/institusi yang mengundang anda untuk wawancara? (17) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  
+  f1001 Int? // Apakah anda aktif mencari pekerjaan dalam 4 minggu terakhir? Pilihlah satu jawaban (18) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f1002 String? @db.Text // Apakah anda aktif mencari pekerjaan dalam 4 minggu terakhir? Pilihlah satu jawaban (lainnya) (1a) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  
+  f1601 Int? // Pertanyaan tidak sesuai; pekerjaan saya sekarang sudah sesuai dengan pendidikan saya. (19a) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f1602 Int? // Saya belum mendapatkan pekerjaan yang lebih sesuai. (19b) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f1603 Int? // Di pekerjaan ini saya memeroleh prospek karir yang baik. (19c) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f1604 Int? // Saya lebih suka bekerja di area pekerjaan yang tidak ada hubungannya dengan pendidikan saya. (19d) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f1605 Int? // Saya dipromosikan ke posisi yang kurang berhubungan dengan pendidikan saya dibanding posisi sebelumnya. (19e) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f1606 Int? // Saya dapat memeroleh pendapatan yang lebih tinggi di pekerjaan ini. (19f) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f1607 Int? // Pekerjaan saya saat ini lebih aman/terjamin/secure (19g) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f1608 Int? // Pekerjaan saya saat ini lebih menarik (19h) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f1609 Int? // Pekerjaan saya saat ini lebih memungkinkan saya mengambil pekerjaan tambahan/jadwal yang fleksibel, dll. (19i) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1610 Int? // Pekerjaan saya saat ini lokasinya lebih dekat dari rumah saya. (19j) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja) 
+  f1611 Int? // Pekerjaan saya saat ini dapat lebih menjamin kebutuhan keluarga saya. (19k) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1612 Int? // Pada awal meniti karir ini, saya harus menerima pekerjaan yang tidak berhubungan dengan pendidikan saya (19k) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1613 Int? // Lainnya (19m) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+  f1614 String? @db.Text // Lainnya (textbox) (19n) (bekerja) (Belum memungkinkan bekerja) (wiraswasta) (melanjutkan pendidikan) (tidak kerja tetapi sedang mencari kerja)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  profile   Profile  @relation(fields: [profile_id], references: [id])
+
+  @@map("tracer_studies")
+}
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
+  description String?   @db.Text
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  Product     Product[]
+}
+
+model Product {
+  id          String   @id @unique @default(uuid())
+  name        String   @unique
+  description String?  @db.Text
+  price       Int
+  categoryId  Int // FK yang menghubungkan ke category
+  image       String
+  stock       Int      @default(0)
+  countReview Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("Products") // Jika tabel di database menggunakan nama "Products"
+}

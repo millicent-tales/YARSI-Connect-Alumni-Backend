@@ -1,0 +1,5 @@
+{"timestamp":"2024-12-24T22:05:30.316Z","level":"INFO","message":"News with title \"UY memenangkan futsal kemarin\" already exists.","method":"POST","url":"/api/v1/news","userId":"ab834b10-6ff2-459f-b12b-78a7e391521e"}
+{"timestamp":"2024-12-24T23:27:05.481Z","level":"INFO","message":"News with title \"UY memenangkan futsal kemarin\" already exists.","method":"POST","url":"/api/v1/news","userId":"ab834b10-6ff2-459f-b12b-78a7e391521e"}
+{"timestamp":"2024-12-24T23:32:05.246Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"ab834b10-6ff2-459f-b12b-78a7e391521e"}
+{"timestamp":"2024-12-24T23:32:56.679Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"4ed11722-99aa-4126-b57c-0ffdf969a763"}
+{"timestamp":"2024-12-24T23:32:56.687Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"4ed11722-99aa-4126-b57c-0ffdf969a763"}

@@ -1,0 +1,2 @@
+{"timestamp":"2024-12-25T21:30:44.686Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"4ed11722-99aa-4126-b57c-0ffdf969a763"}
+{"timestamp":"2024-12-25T21:30:44.698Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"4ed11722-99aa-4126-b57c-0ffdf969a763"}

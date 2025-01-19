@@ -1,0 +1,8 @@
+{"timestamp":"2025-01-05T13:01:25.295Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"90fb0a5f-0179-453f-8cf9-76506b6732c8"}
+{"timestamp":"2025-01-05T13:01:25.331Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"90fb0a5f-0179-453f-8cf9-76506b6732c8"}
+{"timestamp":"2025-01-05T16:48:49.806Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"90fb0a5f-0179-453f-8cf9-76506b6732c8"}
+{"timestamp":"2025-01-05T16:49:16.318Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-05T16:49:16.326Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-05T16:49:37.999Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8"}
+{"timestamp":"2025-01-05T16:49:49.743Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"ae4b2b84-8fb8-4a7d-b94e-7465c682ad46"}
+{"timestamp":"2025-01-05T16:49:49.748Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"ae4b2b84-8fb8-4a7d-b94e-7465c682ad46"}

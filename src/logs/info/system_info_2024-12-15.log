@@ -1,0 +1,23 @@
+{"timestamp":"2024-12-15T11:53:59.392Z","level":"INFO","message":"API request received","method":"POST","url":"/api/v1/auth/logout","userAgent":"PostmanRuntime/7.43.0"}
+{"timestamp":"2024-12-15T11:53:59.436Z","level":"INFO","message":"User logged out","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7"}
+{"timestamp":"2024-12-15T12:01:41.701Z","level":"INFO","message":"API request received","method":"POST","url":"/api/v1/auth/logout","userAgent":"PostmanRuntime/7.43.0"}
+{"timestamp":"2024-12-15T12:02:00.606Z","level":"INFO","message":"API request received","method":"POST","url":"/api/v1/auth/logout","userAgent":"PostmanRuntime/7.43.0"}
+{"timestamp":"2024-12-15T12:02:33.361Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7"}
+{"timestamp":"2024-12-15T12:02:33.376Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7"}
+{"timestamp":"2024-12-15T12:02:53.199Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7"}
+{"timestamp":"2024-12-15T12:18:59.303Z","level":"WARN","message":"Login failed, incorrect password","method":"POST","url":"/api/v1/auth/login","username":"admin_puskaka"}
+{"timestamp":"2024-12-15T12:20:41.377Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7"}
+{"timestamp":"2024-12-15T12:20:41.392Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7"}
+{"timestamp":"2024-12-15T12:22:07.208Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7"}
+{"timestamp":"2024-12-15T12:30:38.900Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7"}
+{"timestamp":"2024-12-15T12:30:38.911Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7"}
+{"timestamp":"2024-12-15T12:31:25.755Z","level":"INFO","message":"News with title \"UY memenangkan futsal kemarin\" already exists.","method":"N/A","url":"N/A"}
+{"timestamp":"2024-12-15T12:33:49.506Z","level":"ERROR","message":"Error while adding news:  user is not defined","method":"N/A","url":"N/A","stack":"ReferenceError: user is not defined\n    at exports.addNews (H:\\Backend\\belajar-orm\\src\\controllers\\newsController.js:18:17)"}
+{"timestamp":"2024-12-15T12:35:16.481Z","level":"ERROR","message":"Error while adding news:  user is not defined","method":"N/A","url":"N/A","stack":"ReferenceError: user is not defined\n    at exports.addNews (H:\\Backend\\belajar-orm\\src\\controllers\\newsController.js:18:17)"}
+{"timestamp":"2024-12-15T12:35:55.834Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7"}
+{"timestamp":"2024-12-15T12:35:59.294Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7"}
+{"timestamp":"2024-12-15T12:35:59.299Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7"}
+{"timestamp":"2024-12-15T12:36:05.335Z","level":"ERROR","message":"Error while adding news:  user is not defined","method":"N/A","url":"N/A","stack":"ReferenceError: user is not defined\n    at exports.addNews (H:\\Backend\\belajar-orm\\src\\controllers\\newsController.js:18:17)"}
+{"timestamp":"2024-12-15T12:37:32.035Z","level":"INFO","message":"News with title \"UY memenangkan futsal kemarin\" already exists.","method":"POST","url":"/api/v1/news","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7","username":"admin_puskaka"}
+{"timestamp":"2024-12-15T13:20:06.050Z","level":"INFO","message":"News with title \"UY memenangkan futsal kemarin\" already exists.","method":"POST","url":"/api/v1/news","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7"}
+{"timestamp":"2024-12-15T13:20:17.566Z","level":"INFO","message":"News with title \"UY memenangkan futsal kemarin\" already exists.","method":"POST","url":"/api/v1/news","userId":"3f9c547a-ec6a-425a-bf06-6cb6f8982bd7"}

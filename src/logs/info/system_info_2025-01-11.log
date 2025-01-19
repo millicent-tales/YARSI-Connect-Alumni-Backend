@@ -1,0 +1,11 @@
+{"timestamp":"2025-01-11T15:02:28.301Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"5e4e5e8b-2ff3-40d0-b26e-a69e5748adfc"}
+{"timestamp":"2025-01-11T15:02:28.308Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"5e4e5e8b-2ff3-40d0-b26e-a69e5748adfc"}
+{"timestamp":"2025-01-11T15:31:46.206Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"5e4e5e8b-2ff3-40d0-b26e-a69e5748adfc"}
+{"timestamp":"2025-01-11T15:32:00.911Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"7afd1454-2a81-4d01-bc6e-3864a8a79765"}
+{"timestamp":"2025-01-11T15:32:00.918Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"7afd1454-2a81-4d01-bc6e-3864a8a79765"}
+{"timestamp":"2025-01-11T15:32:32.489Z","level":"INFO","message":"User logged out","method":"POST","url":"/api/v1/auth/logout","userId":"7afd1454-2a81-4d01-bc6e-3864a8a79765"}
+{"timestamp":"2025-01-11T15:32:46.294Z","level":"WARN","message":"Login failed, user not found","method":"POST","url":"/api/v1/auth/login","username":"admin_universitas"}
+{"timestamp":"2025-01-11T15:33:04.042Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"ab834b10-6ff2-459f-b12b-78a7e391521e"}
+{"timestamp":"2025-01-11T15:33:04.048Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"ab834b10-6ff2-459f-b12b-78a7e391521e"}
+{"timestamp":"2025-01-11T15:51:11.840Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"ab834b10-6ff2-459f-b12b-78a7e391521e"}
+{"timestamp":"2025-01-11T15:51:11.854Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"ab834b10-6ff2-459f-b12b-78a7e391521e"}

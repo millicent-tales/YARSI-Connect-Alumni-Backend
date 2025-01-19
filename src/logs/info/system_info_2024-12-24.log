@@ -1,0 +1,7 @@
+{"timestamp":"2024-12-23T19:39:51.293Z","level":"INFO","message":"User created successfully","method":"POST","url":"/api/v1/auth/register","userId":"6b9a37e7-9a5b-467c-a732-8b119d269486","username":"admin_puskaka"}
+{"timestamp":"2024-12-23T19:39:51.319Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/register","userId":"6b9a37e7-9a5b-467c-a732-8b119d269486"}
+{"timestamp":"2024-12-23T19:39:56.028Z","level":"INFO","message":"Login successful","method":"POST","url":"/api/v1/auth/login","userId":"6b9a37e7-9a5b-467c-a732-8b119d269486"}
+{"timestamp":"2024-12-23T19:39:56.035Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/login","userId":"6b9a37e7-9a5b-467c-a732-8b119d269486"}
+{"timestamp":"2024-12-23T22:42:13.879Z","level":"WARN","message":"Login failed, user not found","method":"POST","url":"/api/v1/auth/login","username":"admin_puskaka"}
+{"timestamp":"2024-12-23T22:42:40.830Z","level":"INFO","message":"User created successfully","method":"POST","url":"/api/v1/auth/register","userId":"ab834b10-6ff2-459f-b12b-78a7e391521e","username":"admin_puskaka"}
+{"timestamp":"2024-12-23T22:42:40.843Z","level":"INFO","message":"Token created successfully","method":"POST","url":"/api/v1/auth/register","userId":"ab834b10-6ff2-459f-b12b-78a7e391521e"}

@@ -1,0 +1,1 @@
+{"timestamp":"2025-01-15T17:01:35.402Z","level":"ERROR","message":"Error handling old image while updating news with id 6f7f9fbb-c109-4e55-979f-16a27739de40.","method":"PATCH","url":"/api/v1/news/6f7f9fbb-c109-4e55-979f-16a27739de40","userId":"9b8dbcaf-347d-4860-bc72-3d759ccdb0e8","error":"path is not defined"}
